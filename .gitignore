@@ -1,0 +1,15 @@
+node_modules/
+.output/
+.nuxt/
+dist/
+.env
+.env.local
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+src-tauri/target/
+models/
+sidecar/
+documents/

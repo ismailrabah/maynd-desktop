@@ -1,0 +1,12 @@
+{
+  "name": "maynd-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "tauri:dev": "tauri dev"
+  },
+  "dependencies": {
+    "@nuxt/ui": "^2.17.0",
+    "@nuxtjs/i18n": "^8.3.0"
+  }
+}
