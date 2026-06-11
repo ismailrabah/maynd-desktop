@@ -1,1 +1,84 @@
-{"productName":"Maynd.ma","version":"1.0.0","description":"100% Offline AI Desktop Application","identifier":"ma.maynd.desktop","bundle":{"active":true,"targets":"all","icon":[{"path":"public/icon.png","sizes":[32,128,320,1024]}],"resources":[{"pattern":"sidecar/*"},{"pattern":"models/*"}]},"app":{"windows":[{"title":"Maynd.ma","width":1200,"height":800}]},"plugins":{"sysinfo":{"enabled":true},"fs":{"enabled":true},"dialog":{"enabled":true},"notification":{"enabled":true}},"permissions":{"fs":{"read":true,"write":true},"sysinfo":{"all":true}}}
+{
+  "$schema": "https://raw.githubusercontent.com/tauri-apps/tauri/main/tauri.conf.json.schema.json",
+  "productName": "Maynd",
+  "version": "1.0.0",
+  "description": "100% offline AI desktop application for Moroccan B2B professionals",
+  "authors": ["Ismail Rabah"],
+  "license": "MIT",
+  "repository": "https://github.com/ismailrabah/maynd-desktop",
+  "defaultFeatures": "all",
+  "build": {
+    "beforeBuildCommand": "",
+    "beforeDevCommand": "",
+    "devPath": "http://localhost:3000",
+    "distDir": "../client/dist",
+    "withGlobalTauri": false
+  },
+  "package": {
+    "properties": {
+      "tauri": {
+        "allowlist": {
+          "all": false,
+          "http": {
+            "all": true,
+            "scope": [
+              {
+                "name": "Admin API",
+                "url": "http://localhost:4000/api/*"
+              },
+              {
+                "name": "Hugging Face",
+                "url": "https://huggingface.co/*"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "tauri": {
+    "allowlist": {
+      "http": {
+        "all": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "ma.ismailrabah.maynd",
+      "icon": [{"file": "public/icon.png", "sizes": [16, 32, 64, 128, 256, 512, 1024]}],
+      "macOS": {
+        "entitlements": null,
+        "hardenedRuntime": true,
+        "targets": ["dmg", "app"]
+      },
+      "windows": {
+        "targets": ["nsis", "msi"],
+        "nsis": {
+          "languages": ["en"],
+          "license": false,
+          "createStartMenuGroup": true,
+          "createDesktopShortcut": true
+        }
+      },
+      "linux": {
+        "targets": ["appimage", "deb", "rpm"],
+        "category": "Utility"
+      }
+    },
+    "application": {
+      "windows": [{
+        "title": "Maynd",
+        "width": 1200,
+        "height": 800,
+        "minWidth": 800,
+        "minHeight": 600,
+        "resizable": true,
+        "center": true
+      }]
+    },
+    "plugins": {
+      "sysinfo": { "all": true }
+    }
+  }
+}
