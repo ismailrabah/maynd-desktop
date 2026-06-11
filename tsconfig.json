@@ -1,0 +1,1 @@
+{"extends": "./.nuxt/tsconfig.json","compilerOptions": {"target": "ESNext","strict": true,"baseUrl": ".","paths": {"@/*": ["*"]}},"include": ["**/*.ts","**/*.vue"],"exclude": ["node_modules"]}
